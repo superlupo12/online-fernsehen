@@ -14,7 +14,8 @@
     "qualities": [
       {
         "name": "auto",
-        "url": "http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/master.m3u8"
+        "url": "http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/master.m3u8?dw=0",
+        "url_alternate": "http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/master.m3u8"
       }
     ]
   },
@@ -24,6 +25,19 @@
       {
         "name": "404p",
         "url": "http://esioslive6-i.akamaihd.net/hls/live/202874/AL_P_ESP1_INTER_ENG/playlist_1800.m3u8"
+      }
+    ]
+  },
+  {
+    "name": "ORF eins",
+    "qualities": [
+      {
+        "name": "auto",
+        "url": "http://apasfiisl.apa.at/ipad/orf1_qxb/orf.sdp/playlist.m3u8"
+      },
+      {
+        "name": "540p",
+        "url": "http://apasfiisl.apa.at/ipad/orf1_q6a/orf.sdp/playlist.m3u8"
       }
     ]
   }

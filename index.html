@@ -1,45 +1,90 @@
 <!doctype html>
-<video controls autoplay webkit-playsinline src="http://esioslive6-i.akamaihd.net/hls/live/202874/AL_P_ESP1_INTER_ENG/playlist_1800.m3u8">
-</video>
-<!--
-maybe use hls.js from flowplayer, but maybe not different
--->
-<p>Good performance on browsers that support HLS: Safari (iOS, OS X), MS Edge, Chrome (mobile only, Androi?)</p>
+<meta name="viewport" content="initial-scale=1">
+<ul id="stations"></ul>
+<video controls autoplay webkit-playsinline style="display: none"></video>
+<p>Good performance on browsers that support HLS: Safari (iOS, OS X), MS Edge, Chrome (Android, mobile only?)</p>
 <p>Mediocre performance on browser that support MSE</p>
-<script src="hls.js"></script>
+<script src="hls.js"></script><!-- this one's from releases.flowplayer.org/hlsjs/hls.js -->
 <!-- <script src="https://cdn.jsdelivr.net/hls.js/latest/hls.min.js"></script> -->
+<style>
+ol {
+  display: inline;
+  padding-left: 0;
+}
+ol li::before {
+  content: " [";
+}
+ol li::after {
+  content: "]";
+}
+ol li {
+  display: inline;
+  list-style-type: none;
+}
+</style>
 <script>
 
+var video = document.querySelector('video');
+
+var canPlayHLSResult = video.canPlayType("application/x-mpegurl");
+var canPlayHLS = canPlayHLSResult === "maybe" || canPlayHLSResult === "probably";
+console.info("canPlay HLS: " + canPlayHLS)
+
+var req = new XMLHttpRequest();
+req.open("GET", "stations.json");
+req.onreadystatechange = function (e) {
+  if (req.readyState === req.DONE && req.status >= 200 && req.status < 400) {
+    var stationsUl = document.getElementById("stations");
+    var stationsData = JSON.parse(req.responseText);
+    console.info("got stations list");
+    stationsData.forEach( function (station) {
+      var li = document.createElement("li");
+      li.textContent = station["name"];
+      var ol = document.createElement("ol");
+      li.appendChild(ol);
+      station["qualities"].forEach(function (quality) {
+        var li = document.createElement("li");
+        var a = document.createElement("a");
+        a.href = quality["url"];
+        a.textContent = quality["name"];
+        a.addEventListener("click", stationClicked);
+        li.appendChild(a);
+        ol.appendChild(li);
+      });
+      stationsUl.appendChild(li);
+    });
+  }
+}
+req.send(null);
+  
+function stationClicked(e) {
+  e.preventDefault();
+  console.log("changing video to", e.currentTarget.href);
+  loadVideo(video, e.currentTarget.href);
+}
+/*
 function bodyDebug(msg) {
   var li = document.createElement("li");
   li.textContent = msg;
   document.body.appendChild(li);
 }
-
-function handleVideoError(video) {
-  if (video.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
-    bodyDebug("HLS source couldn't be loaded, try JS");
-    if(Hls.isSupported()) {
-      var hls = new Hls();
-      hls.loadSource(video.currentSrc);
-      hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED,function() {
-        video.play();
-      });
-    } else {
-      bodyDebug("hls.js not supported");
-    }
+*/
+function loadVideo(elm, src) {
+  elm.style.display = 'block';
+  if (canPlayHLS) {
+    elm.src = src;
+    elm.autoplay = true;
+  } else if(Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(src);
+    hls.attachMedia(elm);
+    hls.on(Hls.Events.MANIFEST_PARSED,function() {
+      elm.play();
+    });
+  } else {
+    console.warn("hls.js not supported");
   }
+  
 }
 
-var video = document.querySelector('video');
-//firefox sometimes fails immediately with no chance to handle event
-if (video.error) {
-  handleVideoError(video);
-} else {
-  video.addEventListener("error", function onSourceError(e) {
-    video.removeEventListener("error", onSourceError);
-    handleVideoError(video);
-  });
-}
 </script>
