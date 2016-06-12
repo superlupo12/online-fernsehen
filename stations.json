@@ -14,17 +14,66 @@
     "qualities": [
       {
         "name": "auto",
-        "url": "http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/master.m3u8?dw=0",
-        "url_alternate": "http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/master.m3u8"
+        "url": "http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/master.m3u8",
+        "url_alternate": "http://zdf1314-lh.akamaihd.net/i/de14_v1@392878/master.m3u8?dw=0"
       }
     ]
   },
   {
-    "name": "Eurosport",
+    "name": "ZDF neo",
+    "geoprotected": true,
     "qualities": [
       {
-        "name": "404p",
-        "url": "http://esioslive6-i.akamaihd.net/hls/live/202874/AL_P_ESP1_INTER_ENG/playlist_1800.m3u8"
+        "name": "auto",
+        "url": "http://zdf1314-lh.akamaihd.net/i/de13_v1@392877/master.m3u8"
+      }
+    ]
+  },
+  {
+    "name": "ZDF Kultur",
+    "geoprotected": true,
+    "qualities": [
+      {
+        "name": "auto",
+        "url": "http://zdf1112-lh.akamaihd.net/i/de11_v1@392881/master.m3u8"
+      }
+    ]
+  },
+  {
+    "name": "ZDF Info",
+    "geoprotected": true,
+    "qualities": [
+      {
+        "name": "auto",
+        "url": "http://zdf1112-lh.akamaihd.net/i/de12_v1@392882/master.m3u8"
+      }
+    ]
+  },
+  {
+    "name": "Phoenix",
+    "geoprotected": true,
+    "qualities": [
+      {
+        "name": "auto",
+        "url": "http://zdf0910-lh.akamaihd.net/i/de09_v1@392871/master.m3u8?dw=0"
+      }
+    ]
+  },
+  {
+    "name": "3sat",
+    "qualities": [
+      {
+        "name": "auto",
+        "url": "http://zdf0910-lh.akamaihd.net/i/dach10_v1@392872/master.m3u8"
+      }
+    ]
+  },
+  {
+    "name": "hr",
+    "qualities": [
+      {
+        "name": "auto",
+        "url": "http://livestream-1.hr.de/i/hr_fernsehen@75910/master.m3u8"
       }
     ]
   },
@@ -40,5 +89,19 @@
         "url": "http://apasfiisl.apa.at/ipad/orf1_q6a/orf.sdp/playlist.m3u8"
       }
     ]
+  },
+  {
+    "name": "ORF 2",
+    "qualities": [
+      {
+        "name": "auto",
+        "url": "http://apasfiisl.apa.at/ipad/orf2_qxb/orf.sdp/playlist.m3u8"
+      },
+      {
+        "name": "540p",
+        "url": "http://apasfiisl.apa.at/ipad/orf2_q6a/orf.sdp/playlist.m3u8"
+      }
+    ]
   }
+
 ]
