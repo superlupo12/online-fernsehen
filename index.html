@@ -1,0 +1,45 @@
+<!doctype html>
+<video controls autoplay webkit-playsinline src="http://esioslive6-i.akamaihd.net/hls/live/202874/AL_P_ESP1_INTER_ENG/playlist_1800.m3u8">
+</video>
+<!--
+maybe use hls.js from flowplayer, but maybe not different
+-->
+<p>Good performance on browsers that support HLS: Safari (iOS, OS X), MS Edge, Chrome (mobile only, Androi?)</p>
+<p>Mediocre performance on browser that support MSE</p>
+<script src="hls.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/hls.js/latest/hls.min.js"></script> -->
+<script>
+
+function bodyDebug(msg) {
+  var li = document.createElement("li");
+  li.textContent = msg;
+  document.body.appendChild(li);
+}
+
+function handleVideoError(video) {
+  if (video.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
+    bodyDebug("HLS source couldn't be loaded, try JS");
+    if(Hls.isSupported()) {
+      var hls = new Hls();
+      hls.loadSource(video.currentSrc);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED,function() {
+        video.play();
+      });
+    } else {
+      bodyDebug("hls.js not supported");
+    }
+  }
+}
+
+var video = document.querySelector('video');
+//firefox sometimes fails immediately with no chance to handle event
+if (video.error) {
+  handleVideoError(video);
+} else {
+  video.addEventListener("error", function onSourceError(e) {
+    video.removeEventListener("error", onSourceError);
+    handleVideoError(video);
+  });
+}
+</script>
