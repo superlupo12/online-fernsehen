@@ -3,8 +3,20 @@
 <ul id="stations"></ul>
 <video controls autoplay webkit-playsinline style="display: none"></video>
 <p>Good performance on browsers that support HLS: Safari (iOS, OS X), MS Edge, Chrome (Android, mobile only?)</p>
-<p>Mediocre performance on browser that support MSE</p>
+<p>Mediocre performance on browser that support MSE (polyfilled with hls.js)</p>
+<hr>
+<h2>WTF?</h2>
+<p>No bullshit: no ads, no tracking, no plugins; only HTML5 and JS (needed for polyfilling HLS)</p>
+<h2>Why no works?</h2>
+<p>Some stations are geoblocked outside Germany, some streams don't have the necessary header for polyfill to work</p>
+<h2>Copyright!</h2>
+<p>I only provide shortcuts to the official livestreams, I do not stream any content myself</p>
+<h2>Where is Pro7/RTL/etc.?</h2>
+<p>They have stupid content and makes you dumb. Also, they do not provide web streams because they think their content is valuable. If you find some streams, tell me.</p>
 <style>
+html {
+  font-family: sans-serif;
+}
 ol {
   display: inline;
   padding-left: 0;
@@ -52,6 +64,22 @@ req.onreadystatechange = function (e) {
         li.appendChild(a);
         ol.appendChild(li);
       });
+      if (station["geoblocked"]) {
+        var abbr = document.createElement("abbr");
+        abbr.textContent = "G";
+        abbr.title = "Geo-geblockt, kann nicht außerhalb Deutschlands abgespielt werden";
+        li.appendChild(document.createTextNode(" ["));
+        li.appendChild(abbr);
+        li.appendChild(document.createTextNode("]"));
+      }
+      if (station["broken_cors"]) {
+        var abbr = document.createElement("abbr");
+        abbr.textContent = "C";
+        abbr.title = "Fehlende CORS-Header, Polyfill wird nicht funktionieren";
+        li.appendChild(document.createTextNode(" ["));
+        li.appendChild(abbr);
+        li.appendChild(document.createTextNode("]"));
+      }
       stationsUl.appendChild(li);
     });
   }
