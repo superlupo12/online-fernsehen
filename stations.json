@@ -253,6 +253,7 @@
     "name": "N24",
     "geopblocked": true,
     "broken_cors": true,
+    "href": "http://www.n24.de/n24/Mediathek/Live/d/1824818/n24-livestream.html",
     "qualities": [
       {
         "name": "auto",
@@ -263,6 +264,7 @@
   {
     "name": "ntv",
     "broken_cors": true,
+    "href": "http://www.n-tv.de/mediathek/livestream/",
     "qualities": [
       {
         "name": "auto",
@@ -273,6 +275,7 @@
   {
     "name": "Euronews",
     "broken_cors": true,
+    "href": "http://euronews.com/news/streaming-live/",
     "qualities": [
       {
         "name": "auto",
