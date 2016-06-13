@@ -207,17 +207,6 @@
     ]
   },
   {
-    "name": "N24",
-    "geopblocked": true,
-    "broken_cors": true,
-    "qualities": [
-      {
-        "name": "auto",
-        "url": "http://n24-live.hls.adaptive.level3.net/hls-live/n24-pssimn24live/_definst_/live.m3u8"
-      }
-    ]
-  },
-  {
     "name": "ORF eins",
     "qualities": [
       {
@@ -257,6 +246,52 @@
       {
         "name": "auto",
         "url": "http://hdiosstv-f.akamaihd.net/i/servustvhd_1@51229/master.m3u8"
+      }
+    ]
+  },
+  {
+    "name": "N24",
+    "geopblocked": true,
+    "broken_cors": true,
+    "qualities": [
+      {
+        "name": "auto",
+        "url": "http://n24-live.hls.adaptive.level3.net/hls-live/n24-pssimn24live/_definst_/live.m3u8"
+      }
+    ]
+  },
+  {
+    "name": "ntv",
+    "broken_cors": true,
+    "qualities": [
+      {
+        "name": "auto",
+        "url": "http://p.live.fra.n-tv.de/playlists/ntvlive.m3u8"
+      }
+    ]
+  },
+  {
+    "name": "Euronews",
+    "broken_cors": true,
+    "qualities": [
+      {
+        "name": "auto",
+        "url": "http://ewns-hls-b-cdn.hexaglobe.net/54d05a43d6089343167a116f909e756d/575f01c7/euronews_eng.smil/playlist.m3u8"
+      }
+    ]
+  },
+  {
+    "name": "gotv",
+    "broken_cors": true,
+    "href": "http://www.gotv.at/app/",
+    "qualities": [
+      {
+        "name": "576p",
+        "url": "http://stream007.gotv.at:1935/live/gotvlive_576p/playlist.m3u8"
+      },
+      {
+        "name": "360p",
+        "url": "http://stream007.gotv.at:1935/live/gotvlive_360p/playlist.m3u8"
       }
     ]
   }
