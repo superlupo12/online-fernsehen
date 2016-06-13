@@ -98,13 +98,19 @@ function bodyDebug(msg) {
   document.body.appendChild(li);
 }
 */
+var hls = null;
 function loadVideo(elm, src) {
   elm.style.display = '';
   if (canPlayHLS) {
     elm.src = src;
     elm.autoplay = true;
   } else if(Hls.isSupported()) {
-    var hls = new Hls();
+    if (hls) {
+      console.info("detach and stop")
+      hls.detachMedia();
+      hls.stopLoad();
+    }
+    hls = new Hls();
     hls.loadSource(src);
     hls.attachMedia(elm);
     hls.on(Hls.Events.MANIFEST_PARSED,function() {
