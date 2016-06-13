@@ -20,7 +20,7 @@
   },
   {
     "name": "ARD alpha",
-    "geopblocked": true,
+    "geoblocked": true,
     "qualities": [
       {
         "name": "auto",
@@ -30,7 +30,7 @@
   },
   {
     "name": "BR nord",
-    "geopblocked": true,
+    "geoblocked": true,
     "qualities": [
       {
         "name": "auto",
@@ -49,7 +49,7 @@
   },
   {
     "name": "MDR Thüringen",
-    "geopblocked": true,
+    "geoblocked": true,
     "qualities": [
       {
         "name": "auto",
@@ -68,7 +68,7 @@
   },
   {
     "name": "RBB Berlin",
-    "geopblocked": true,
+    "geoblocked": true,
     "qualities": [
       {
         "name": "auto",
@@ -78,7 +78,7 @@
   },
   {
     "name": "SR",
-    "geopblocked": true,
+    "geoblocked": true,
     "qualities": [
       {
         "name": "auto",
@@ -97,6 +97,7 @@
   },
   {
     "name": "tagesschau24",
+    "broken_cors": true,
     "qualities": [
       {
         "name": "auto",
@@ -116,6 +117,7 @@
   },
   {
     "name": "einsfestival",
+    "geoblocked": true,
     "qualities": [
       {
         "name": "auto",
@@ -130,6 +132,7 @@
   },
   {
     "name": "ZDF",
+    "geoblocked": true,
     "qualities": [
       {
         "name": "auto",
@@ -140,7 +143,7 @@
   },
   {
     "name": "ZDF neo",
-    "geopblocked": true,
+    "geoblocked": true,
     "qualities": [
       {
         "name": "auto",
@@ -150,7 +153,7 @@
   },
   {
     "name": "ZDF Kultur",
-    "geopblocked": true,
+    "geoblocked": true,
     "qualities": [
       {
         "name": "auto",
@@ -160,7 +163,7 @@
   },
   {
     "name": "ZDF Info",
-    "geopblocked": true,
+    "geoblocked": true,
     "qualities": [
       {
         "name": "auto",
@@ -170,7 +173,7 @@
   },
   {
     "name": "Phoenix",
-    "geopblocked": true,
+    "geoblocked": true,
     "qualities": [
       {
         "name": "auto",
@@ -180,7 +183,7 @@
   },
   {
     "name": "KiKa",
-    "geopblocked": true,
+    "geoblocked": true,
     "qualities": [
       {
         "name": "auto",
@@ -237,6 +240,32 @@
     ]
   },
   {
+    "name": "ORF III",
+    "qualities": [
+      {
+        "name": "auto",
+        "url": "http://apasfiisl.apa.at/ipad/orf3_qxb/orf.sdp/playlist.m3u8"
+      },
+      {
+        "name": "540p",
+        "url": "http://apasfiisl.apa.at/ipad/orf3_q6a/orf.sdp/playlist.m3u8"
+      }
+    ]
+  },
+  {
+    "name": "ORF Sport +",
+    "qualities": [
+      {
+        "name": "auto",
+        "url": "http://apasfiisl.apa.at/ipad/orfs_qxb/orf.sdp/playlist.m3u8"
+      },
+      {
+        "name": "540p",
+        "url": "http://apasfiisl.apa.at/ipad/orfs_q6a/orf.sdp/playlist.m3u8"
+      }
+    ]
+  },
+  {
     "name": "Servus TV A",
     "qualities": [
       {
@@ -256,7 +285,7 @@
   },
   {
     "name": "N24",
-    "geopblocked": true,
+    "geoblocked": true,
     "broken_cors": true,
     "href": "http://www.n24.de/n24/Mediathek/Live/d/1824818/n24-livestream.html",
     "qualities": [
