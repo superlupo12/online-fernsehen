@@ -124,12 +124,8 @@
     ]
   },
   {
-    "name": "einsfestival",
+    "name": "einsplus",
     "qualities": [
-      {
-        "name": "auto",
-        "url": "http://wdr_einsfestival-lh.akamaihd.net/i/wdr_einsfestival@328300/master.m3u8"
-      }
     ]
   },
   {
